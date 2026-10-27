@@ -1,0 +1,6 @@
+repository,license,file,source_url
+pydicom/pydicom,MIT,licenses/pydicom.txt,https://raw.githubusercontent.com/pydicom/pydicom/6f92f30ce79132672d59a3731c9e6072f7fd2ee6/LICENSE
+pydicom/pydicom-data,MIT,licenses/pydicom-data.txt,https://raw.githubusercontent.com/pydicom/pydicom-data/abc42b90985fb6cf385aa4af766d2c9c94a257a4/LICENSE
+ImagingDataCommons/highdicom,MIT,licenses/highdicom.txt,https://raw.githubusercontent.com/ImagingDataCommons/highdicom/12b1287c901be538e507a98423e39705a2d610ff/LICENSE
+dcmjs-org/dcmjs,MIT,licenses/dcmjs.txt,https://raw.githubusercontent.com/dcmjs-org/dcmjs/aee06e435df085394798bb36c7e8ca584a262040/License.txt
+fo-dicom/fo-dicom,MS-PL,licenses/fo-dicom.txt,https://raw.githubusercontent.com/fo-dicom/fo-dicom/7ea6d424d0b0e11ecf6a55e81a8ac58b05d5e3e2/License.txt
