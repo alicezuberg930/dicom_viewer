@@ -1,50 +1,41 @@
-import { Link, Outlet } from '@tanstack/react-router'
-import { Images, ScanLine } from 'lucide-react'
+import { AuthenticatedLayout } from '@/layout/authenticated-layout'
+import { Header } from '@/layout/header'
+import { Main } from '@/layout/main'
+import { TopNav } from '@/layout/top-nav'
+import { ViewportLayoutPicker } from '@/layout/viewport-layout-picker'
+import { Outlet, useLocation } from '@tanstack/react-router'
 
 function App() {
+  const pathname = useLocation({ select: (location) => location.pathname })
+
   return (
-    <div className='mx-auto flex min-h-svh w-full max-w-[1280px] flex-col px-4 sm:px-6'>
-      <header className='flex h-16 shrink-0 items-center justify-between border-b'>
-        <Link
-          to='/list'
-          className='flex items-center gap-2.5 rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
-        >
-          <span className='flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm'>
-            <ScanLine aria-hidden='true' className='size-5' />
-          </span>
-          <span>
-            <span className='block text-sm leading-none font-semibold'>
-              DICOM Viewer
-            </span>
-            <span className='mt-1 block text-xs text-muted-foreground'>
-              Imaging workbench
-            </span>
-          </span>
-        </Link>
+    <AuthenticatedLayout>
+      <Header fixed>
+        <TopNav
+          links={[
+            {
+              title: 'Studies',
+              href: '/list',
+              isActive: pathname === '/list',
+            },
+            {
+              title: 'Viewer',
+              href: '/viewer/frames-0001-ct-small',
+              isActive: pathname.startsWith('/viewer/'),
+            },
+          ]}
+        />
+        {pathname.startsWith('/viewer/') && (
+          <div className='ml-auto'>
+            <ViewportLayoutPicker />
+          </div>
+        )}
+      </Header>
 
-        <nav aria-label='Primary navigation'>
-          <Link
-            to='/list'
-            className='flex h-9 items-center gap-2 rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
-            activeProps={{
-              className:
-                'flex h-9 items-center gap-2 rounded-md bg-muted px-3 text-sm font-medium text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-            }}
-          >
-            <Images aria-hidden='true' className='size-4' />
-            Studies
-          </Link>
-        </nav>
-      </header>
-
-      <main className='flex-1 py-8'>
+      <Main fixed className='flex flex-1 flex-col'>
         <Outlet />
-      </main>
-
-      <footer className='border-t py-5 text-xs text-muted-foreground'>
-        Development fixtures only — not for diagnostic use.
-      </footer>
-    </div>
+      </Main>
+    </AuthenticatedLayout>
   )
 }
 

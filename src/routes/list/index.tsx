@@ -1,5 +1,5 @@
 import { useNavigate } from '@tanstack/react-router'
-import { ChevronRight, Files, Layers3 } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { DICOM_FILES, formatBytes, type DicomFile } from '@/lib/dicom-files'
 import {
   Table,
@@ -23,35 +23,12 @@ function ListPage() {
   return (
     <section aria-labelledby='library-title'>
       <div className='mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
-        <div>
-          <p className='mb-2 flex items-center gap-2 text-sm font-medium text-muted-foreground'>
-            <Files aria-hidden='true' className='size-4' />
-            Test dataset
-          </p>
-          <h1
-            id='library-title'
-            className='text-3xl font-semibold tracking-tight'
-          >
-            DICOM files
-          </h1>
-          <p className='mt-2 max-w-2xl text-sm leading-6 text-muted-foreground'>
-            Twenty public fixtures covering multiple modalities, transfer
-            syntaxes, and frame counts. Select any row to open it in the
-            Cornerstone viewer.
-          </p>
-        </div>
-
-        <div className='flex items-center gap-3 rounded-lg border bg-card px-4 py-3 shadow-xs'>
-          <span className='flex size-9 items-center justify-center rounded-md bg-muted'>
-            <Layers3 aria-hidden='true' className='size-4' />
-          </span>
-          <span>
-            <span className='block text-lg leading-none font-semibold'>20</span>
-            <span className='mt-1 block text-xs text-muted-foreground'>
-              unique frame counts
-            </span>
-          </span>
-        </div>
+        <h1
+          id='library-title'
+          className='text-3xl font-semibold tracking-tight'
+        >
+          DICOM files
+        </h1>
       </div>
 
       <div className='overflow-hidden rounded-xl border bg-card shadow-xs'>
