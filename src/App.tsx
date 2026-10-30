@@ -1,7 +1,6 @@
 import { AuthenticatedLayout } from '@/layout/authenticated-layout'
 import { Header } from '@/layout/header'
 import { Main } from '@/layout/main'
-import { TopNav } from '@/layout/top-nav'
 import { ViewportLayoutPicker } from '@/layout/viewport-layout-picker'
 import { Outlet, useLocation } from '@tanstack/react-router'
 
@@ -11,20 +10,6 @@ function App() {
   return (
     <AuthenticatedLayout>
       <Header fixed>
-        <TopNav
-          links={[
-            {
-              title: 'Studies',
-              href: '/list',
-              isActive: pathname === '/list',
-            },
-            {
-              title: 'Viewer',
-              href: '/viewer/frames-0001-ct-small',
-              isActive: pathname.startsWith('/viewer/'),
-            },
-          ]}
-        />
         {pathname.startsWith('/viewer/') && (
           <div className='ml-auto'>
             <ViewportLayoutPicker />

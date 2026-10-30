@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation } from '@tanstack/react-router'
-import { Database, GripVertical, ScanSearch } from 'lucide-react'
+import { Database, ScanSearch } from 'lucide-react'
 import { getCookie, setCookie } from '@/lib/cookies'
 import { DICOM_FILES, formatBytes, getDicomFile } from '@/lib/dicom-files'
 import { cn } from '@/lib/utils'
